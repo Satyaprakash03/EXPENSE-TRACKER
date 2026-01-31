@@ -1,7 +1,7 @@
 import React from "react";
 import CustomPieChart from "../Charts/CustomPieChart";
 
-const COLORS = ["#7543f5", "#FA2C37", "#FF6900"];
+const COLORS = ["#7543f5", "#FA2C37", "#33ff00"];
 
 const FinanceOverview = ({ totalBalance, totalIncome, totalExpense }) => {
   const balanceData = [
@@ -13,7 +13,7 @@ const FinanceOverview = ({ totalBalance, totalIncome, totalExpense }) => {
   return (
     <div className="card">
       <div className="flex items-center justify-between">
-        <h5 className="text-lg"> Financial Overview </h5>
+        <h5 className="text-lg font-medium"> Financial Overview </h5>
       </div>
 
       <CustomPieChart

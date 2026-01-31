@@ -8,6 +8,7 @@ import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import { UserContext } from "../../context/userContext";
 import uploadImage from "../../utils/uploadImage";
+import { motion } from "motion/react"
 
 const SignUp = () => {
   const [profilePic, setProfilePic] = useState(null);
@@ -76,7 +77,12 @@ const SignUp = () => {
 
   return (
     <AuthLayout>
-      <div className="lg:w-[100%] h-auto md:h-full mt-10 md:mt-0 flex flex-col justify-center">
+      <motion.div className="lg:w-[100%] h-auto md:h-full mt-10 md:mt-0 flex flex-col justify-center" initial={{ x: -100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{
+        duration: 0.6,
+        ease: "easeOut"
+      }}>
         <h3 className="text-xl font-semibold text-black">
           {" "}
           Create an Account{" "}
@@ -127,7 +133,7 @@ const SignUp = () => {
             </Link>
           </p>
         </form>
-      </div>
+      </motion.div>
     </AuthLayout>
   );
 };

@@ -50,7 +50,7 @@ const CustomBarChart = ({ data }) => {
             tick={{ fontSize: 12, fill: "#555" }}
             stroke="none"
           />
-          <XAxis tick={{ fontSize: 12, fill: "#555" }} stroke="none" />
+          <XAxis tick={{ fontSize: 15, fill: "#555" }} stroke="none" />
 
           <Tooltip content={CustomTooltip} />
 

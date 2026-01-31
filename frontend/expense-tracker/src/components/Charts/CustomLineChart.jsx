@@ -49,7 +49,7 @@ const CustomLineChart = ({ data }) => {
             tick={{ fontSize: 12, fill: "#555" }}
             stroke="none"
           />
-          <YAxis tick={{ fontSize: 12, fill: "#555" }} stroke="none" />
+          <YAxis tick={{ fontSize: 13, fill: "#555" }} stroke="none" />
           <Tooltip content={<CustomTooltip />} />
 
           <Area

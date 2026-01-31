@@ -6,6 +6,7 @@ import { validateEmail } from "../../utils/helper";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import { UserContext } from "../../context/userContext";
+import { motion } from "motion/react"
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -56,7 +57,13 @@ const Login = () => {
 
   return (
     <AuthLayout>
-      <div className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center">
+      <motion.div className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center"
+      initial={{ x: -100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{
+        duration: 0.6,
+        ease: "easeOut"
+      }}>
         <h3 className="text-xl font-semibold text-black"> Welcome Back </h3>
         <p className="text-xs text-slate-700 mt-[5px] mb-6">
           {" "}
@@ -92,7 +99,7 @@ const Login = () => {
             </Link>
           </p>
         </form>
-      </div>
+      </motion.div>
     </AuthLayout>
   );
 };

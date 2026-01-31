@@ -14,6 +14,7 @@ import ExpenseTransactions from "../../components/Dashboard/ExpenseTransactions"
 import Last30DaysExpenses from "../../components/Dashboard/Last30DaysExpenses";
 import RecentIncomeWithChart from "../../components/Dashboard/RecentIncomeWithChart";
 import RecentIncome from "../../components/Dashboard/RecentIncome";
+import { motion } from "motion/react";
 
 const Home = () => {
   useUserAuth();
@@ -51,18 +52,50 @@ const Home = () => {
     <DashboardLayout activeMenu="Dashboard">
       <div className="my-5 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Infocard
-            icon={<IoMdCard />}
-            label="Total Balance"
-            value={addThousandsSeparator(dashboardData?.totalBalance || "0.00")}
-            color="bg-violet-500"
-          />
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+          >
+            <Infocard
+              icon={<IoMdCard />}
+              label="Total Balance"
+              value={addThousandsSeparator(
+                dashboardData?.totalBalance || "0.00",
+              )}
+              color="bg-violet-500"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              delay:0.3
+            }}
+          >
           <Infocard
             icon={<LuWalletMinimal />}
             label="Total Income"
             value={addThousandsSeparator(dashboardData?.totalIncome || "0.00")}
-            color="bg-orange-500"
+            color="bg-green-600"
           />
+          </motion.div>
+
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              delay: 0.6,
+            }}
+          >
           <Infocard
             icon={<LuHandCoins />}
             label="Total Expense"
@@ -71,19 +104,41 @@ const Home = () => {
             )}
             color="bg-red-500"
           />
+          </motion.div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          
+          <motion.div
+            initial={{ x: -150, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              delay: 0.8,
+            }}
+          >
           <RecentTransactions
             transactions={dashboardData?.recentTransactions}
             onSeeMore={() => navigate("/expense")}
           />
+          </motion.div>
 
+          <motion.div
+            initial={{ x: 150, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              delay: 1,
+            }}
+          >
           <FinanceOverview
             totalBalance={dashboardData?.totalBalance || 0}
             totalIncome={dashboardData?.totalIncome || 0}
             totalExpense={dashboardData?.totalExpense || 0}
           />
+          </motion.div>
 
           <ExpenseTransactions
             transactions={dashboardData?.last30DaysExpenses?.transactions || []}

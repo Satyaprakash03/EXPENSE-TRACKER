@@ -44,8 +44,9 @@ const CustomPieChart = ({
               y="50%"
               dy={-25}
               textAnchor="middle"
-              fill="#666"
-              fontSize="14px"
+              fill="#3b3a3a"
+              fontSize="15px"
+              className="font-medium"
             >
               {label}
             </text>
@@ -54,9 +55,9 @@ const CustomPieChart = ({
               y="50%"
               dy={8}
               textAnchor="middle"
-              fill="#333"
+              fill="#000000"
               fontSize="24px"
-              fontWeight="semi-bold"
+              className="font-semibold"
             >
               {totalAmount}
             </text>

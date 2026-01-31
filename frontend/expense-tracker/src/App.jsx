@@ -12,11 +12,13 @@ import Income from "./pages/Dashboard/Income";
 import Expense from "./pages/Dashboard/Expense";
 import UserProvider from "./context/userContext";
 import { Toaster } from "react-hot-toast";
+import LenisScroll from "./components/LenisScroll";
 
 const App = () => {
   return (
     <UserProvider>
       <div>
+      <LenisScroll />
         <Router>
           <Routes>
             <Route path="/" element={<Root />} />
