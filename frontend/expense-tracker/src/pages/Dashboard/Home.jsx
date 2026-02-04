@@ -6,7 +6,6 @@ import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import Infocard from "../../components/Cards/Infocard";
 import { LuHandCoins, LuWalletMinimal } from "react-icons/lu";
-import { IoMdCard } from "react-icons/io";
 import { addThousandsSeparator } from "../../utils/helper";
 import RecentTransactions from "../../components/Dashboard/RecentTransactions";
 import FinanceOverview from "../../components/Dashboard/FinanceOverview";
@@ -15,6 +14,7 @@ import Last30DaysExpenses from "../../components/Dashboard/Last30DaysExpenses";
 import RecentIncomeWithChart from "../../components/Dashboard/RecentIncomeWithChart";
 import RecentIncome from "../../components/Dashboard/RecentIncome";
 import { motion } from "motion/react";
+import { TbPigMoney } from "react-icons/tb";
 
 const Home = () => {
   useUserAuth();
@@ -61,12 +61,12 @@ const Home = () => {
             }}
           >
             <Infocard
-              icon={<IoMdCard />}
+              icon={<TbPigMoney />}
               label="Total Balance"
               value={addThousandsSeparator(
                 dashboardData?.totalBalance || "0.00",
               )}
-              color="bg-violet-500"
+              color="bg-[#FFC154]"
             />
           </motion.div>
 
@@ -83,7 +83,7 @@ const Home = () => {
             icon={<LuWalletMinimal />}
             label="Total Income"
             value={addThousandsSeparator(dashboardData?.totalIncome || "0.00")}
-            color="bg-green-600"
+            color="bg-[#47B39C]"
           />
           </motion.div>
 
@@ -102,7 +102,7 @@ const Home = () => {
             value={addThousandsSeparator(
               dashboardData?.totalExpenses || "0.00",
             )}
-            color="bg-red-500"
+            color="bg-[#EC6B56]"
           />
           </motion.div>
         </div>
@@ -136,7 +136,7 @@ const Home = () => {
           <FinanceOverview
             totalBalance={dashboardData?.totalBalance || 0}
             totalIncome={dashboardData?.totalIncome || 0}
-            totalExpense={dashboardData?.totalExpense || 0}
+            totalExpenses={dashboardData?.totalExpenses || 0}
           />
           </motion.div>
 

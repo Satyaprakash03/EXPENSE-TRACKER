@@ -1,10 +1,6 @@
 import React from "react";
-import {
-  LuUtensils,
-  LuTrendingUp,
-  LuTrendingDown,
-  LuTrash2,
-} from "react-icons/lu";
+import { LuTrendingUp, LuTrendingDown, LuTrash2 } from "react-icons/lu";
+import { GoArrowUpRight, GoArrowDownLeft } from "react-icons/go";
 
 const TransactionInfoCard = ({
   title,
@@ -21,10 +17,23 @@ const TransactionInfoCard = ({
   return (
     <div className="group relative flex items-center gap-4 mt-2 p-3 rounded-lg hover:bg-gray-100/60">
       <div className="w-12 h-12 flex items-center justify-center text-xl text-gray-800 bg-gray-100 rounded-full">
-        {icon ? (
-          <img src={icon} alt={title} className="w-6 h-6" />
+        {type === "income" ? (
+          icon ? (
+            <GoArrowDownLeft
+              className="w-6 h-6 text-green-600"
+              style={{ strokeWidth: 0.5 }}
+            />
+          ) : (
+            <GoArrowDownLeft
+              className="w-6 h-6 text-green-600"
+              style={{ strokeWidth: 0.5 }}
+            />
+          )
         ) : (
-          <LuUtensils />
+          <GoArrowUpRight
+            className="w-6 h-6 text-red-600"
+            style={{ strokeWidth: 0.5 }}
+          />
         )}
       </div>
       <div className="flex-1 flex items-center justify-between">

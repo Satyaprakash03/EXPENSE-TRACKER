@@ -19,7 +19,7 @@ const AuthLayout = ({ children }) => {
           }}
         >
           {" "}
-          Expen<span className="text-purple-500">Zo</span>{" "}
+          Expense <span className="text-purple-500">Tracker</span>{" "}
         </motion.h2>
         {children}
       </div>
